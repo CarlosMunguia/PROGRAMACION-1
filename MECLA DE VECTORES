@@ -1,0 +1,88 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#define MAX 100
+
+using namespace std;
+
+
+void cargarvector(int a[],int tam);
+
+void mostrarvector(int a[],int tam);
+
+void mezclar(int M[],int n,int N[],int m, int O[],int &z);
+
+int main()
+{
+	
+	int M[MAX],N[MAX],O[MAX],n,m,z;
+
+	do{
+		cout<<"Ingresar el valor: ";
+		cin>>n;
+		
+	} while ((n<=0)||(n>MAX));
+	do{
+	cout<<"Ingresar el valor: ";
+		cin>>m;
+	} while 
+		((m<=0)||(m>MAX));
+	
+	
+   
+cargarvector(M,n);
+cargarvector(N,m);
+mezclar(M,n,N,m,O,z);
+mostrarvector(O,z);
+mostrarvector(M,n);
+getch();
+return 0;
+}
+void cargarvector(int a[],int tam)
+{
+	for (int i=0;i<tam;i++)
+	{
+		cout<<"Ingresar a["<<i<<"]";
+		cin>>a[i];
+	}
+}
+
+void mostrarvector(int a[],int tam)
+{	
+	for (int i=0;i<tam;i++)
+	{
+		cout<<"a["<<i<<"]"<<a[i]<<endl;
+	
+	}
+}
+
+void mezclar(int M[],int n,int N[],int m, int O[],int &z)
+{
+	int i=0,j=0,k=0;
+    while ((i<n)&&(j<m))
+		{
+			if(M[i]< N[j])
+			{
+			  O[k]=M[i];
+	          i++;
+		    }
+		    else
+			{
+				O[k]=N[j];
+	            j++;
+			}
+			k++;
+	   }
+	while (i<n)
+	{ O[k]=M[i];
+	  i++; 
+	  k++;
+	}
+	while (j<m)
+	{ O[k]=N[j];
+	  j++; 
+	  k++;
+	}
+	z=k;
+}
